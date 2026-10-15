@@ -16,18 +16,21 @@ public class Request {
     private String uid;
 
     @NotBlank(message = "operationUid обязателен")
-    @Size(max = 32, message = "operationUid должен содержать не более 32 символов")
+    @Size(max = 32,
+            message = "operationUid должен содержать не более 32 символов")
     private String operationUid;
 
-    private String systemName;
+    private Systems systemName;
 
     @NotBlank(message = "systemTime обязателен")
     private String systemTime;
 
     private String source;
 
-    @Min(value = 1, message = "communicationId должен быть не меньше 1")
-    @Max(value = 100000, message = "communicationId должен быть не больше 100000")
+    @Min(value = 1,
+            message = "communicationId должен быть не менее 1")
+    @Max(value = 100000,
+            message = "communicationId должен быть не больше 100000")
     private int communicationId;
 
     private int templateId;
@@ -35,4 +38,19 @@ public class Request {
     private int productCode;
 
     private int smsCode;
+
+    @Override
+    public String toString() {
+        return "Request{" +
+                "uid='" + uid + '\'' +
+                ", operationUid='" + operationUid + '\'' +
+                ", systemName=" + systemName +
+                ", systemTime='" + systemTime + '\'' +
+                ", source='" + source + '\'' +
+                ", communicationId=" + communicationId +
+                ", templateId=" + templateId +
+                ", productCode=" + productCode +
+                ", smsCode=" + smsCode +
+                '}';
+    }
 }
